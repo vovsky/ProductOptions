@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Atwix
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * @category    Atwix Mod
+ * @package     Atwix_ProductOptions
+ * @author      Atwix Core Team
+ * @copyright   Copyright (c) 2013 Atwix (http://www.atwix.com)
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+/app/code/local/Atwix/ProductOptions/etc/config.xml
+-->
+
+<config>
+    <modules>
+        <Atwix_ProductOptions>
+            <version>1.0.0</version>
+        </Atwix_ProductOptions>
+    </modules>
+    <global>
+        <helpers>
+            <atwix_productoptions>
+                <class>Atwix_ProductOptions_Helper</class>
+            </atwix_productoptions>
+        </helpers>
+        <models>
+            <atwix_productoptions>
+                <class>Atwix_ProductOptions_Model</class>
+            </atwix_productoptions>
+        </models>
+    </global>
+    <frontend>
+        <events>
+            <catalog_product_collection_load_after>
+                <observers>
+                    <atwix_productoptions>
+                        <class>atwix_productoptions/observer</class>
+                        <method>storeAttributes</method>
+                    </atwix_productoptions>
+                </observers>
+            </catalog_product_collection_load_after>
+        </events>
+    </frontend>
+</config>
